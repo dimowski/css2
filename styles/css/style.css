@@ -1,62 +1,144 @@
 @charset "UTF-8";
+/*********************
+BREAKPOINTS
+*********************/
+/****************************************/
 body {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto; }
 
+* {
+  box-sizing: border-box; }
+
 .wrapper {
   width: 100%;
-  max-width: 1170px;
-  margin: 0 auto; }
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 30px; }
 
-.clearfix:after, .logo--icon:after, .devices:after {
+.clearfix:after, .logo:after, .banner:after, .features:after, .devices:after {
   content: "";
   display: table;
   clear: both; }
 
 .header--background {
   background: url("../../images/bg-img.jpg") no-repeat;
-  height: 565px; }
+  height: 565px;
+  background-size: cover; }
+  .header--background:after {
+    content: "";
+    display: table;
+    clear: both; }
 
 .logo {
-  margin: 20px 0;
-  display: inline-block;
-  width: 50%; }
-  .logo--icon {
-    float: left; }
+  display: inline-block; }
+  @media only screen and (max-width: 1024px) {
+    .logo {
+      max-width: 40%; } }
   .logo--text-big {
+    word-wrap: break-word;
+    display: block;
+    vertical-align: middle;
     color: white;
     font-size: 40px;
-    text-transform: uppercase;
-    vertical-align: middle; }
+    text-transform: uppercase; }
+    .logo--text-big::before {
+      display: inline-block;
+      vertical-align: middle;
+      width: 70px;
+      height: 70px;
+      margin: 10px 5px;
+      padding: 6px;
+      content: "";
+      background: url(/images/logo.png) no-repeat 0 0;
+      background-size: 100%; }
   .logo--text-small {
     color: #8c837c;
-    font-size: 15px; }
+    font-size: 12px;
+    display: inline; }
 
 .menu-navbar {
-  margin: 0;
-  display: inline-block; }
+  margin-top: 40px;
+  float: right; }
 
 .navbar {
   list-style: none;
-  margin: 0;
   background: #f5c506;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end; }
-  .navbar a {
+  /*
+  
+  
+    position: fixed;
+  top: 0;
+  right: 0;
+  width:100%;
+  height:50px;
+  
+  */
+  box-shadow: -5px -5px 0 rgba(245, 197, 6, 0.5), -10px -10px 0 rgba(245, 197, 6, 0.5); }
+  .navbar li:nth-child(2) {
+    border-left: 1px solid #b99403;
+    border-right: 1px solid #b99403; }
+  .navbar--item-link {
     text-transform: uppercase;
     text-decoration: none;
+    text-align: center;
+    font-size: 17px;
     color: #b99403;
     display: block;
-    padding: 0.5em; }
-    .navbar a:hover {
+    padding: 0.5em;
+    width: 140px; }
+    .navbar--item-link:hover {
       background: #dcb105; }
+
+.banner {
+  margin-top: 50px; }
+  .banner--video {
+    float: left;
+    margin-right: 30px; }
+  .banner--title {
+    display: inline-block;
+    margin: 100px 0;
+    font-size: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 110%; }
+    .banner--title h3:nth-child(1) {
+      color: #f5c506; }
+    .banner--title h3:nth-child(2) {
+      color: #fff; }
+
+.features--container {
+  background-color: #f2f2f2;
+  background-image: linear-gradient(45deg, transparent, transparent 48%, rgba(227, 227, 227, 0.3) 48%, rgba(227, 227, 227, 0.3) 52%, transparent 52%);
+  background-size: 6px 6px; }
+.features--list {
+  text-transform: uppercase; }
+  .features--list li:nth-child(1) {
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1; }
+  .features--list li:nth-child(3) {
+    border-left: 1px solid #d1d1d1;
+    border-right: 1px solid #d1d1d1; }
+.features--list-item {
+  padding: 30px;
+  font-size: 30px;
+  text-align: center;
+  width: 33%;
+  margin: 0 auto;
+  float: left;
+  color: #f5c506; }
+.features--title {
+  text-decoration: none;
+  line-height: 140%;
+  color: black;
+  display: block; }
 
 /* ================================================ */
 .presentation {
   background: url(/images/bg-img-fragment.jpg);
-  padding: 0 20px 150px 120px; }
+  padding-bottom: 120px; }
   .presentation--title {
     color: #fff;
     text-transform: uppercase;
@@ -64,7 +146,7 @@ body {
     padding: 30px 0; }
   .presentation--text {
     background: #ec9e03;
-    height: 190px;
+    height: 230px;
     padding: 20px 30px;
     width: 320px;
     float: left;
@@ -114,11 +196,14 @@ body {
     text-align: center;
     font-size: 30px;
     padding: 30px 0; }
-  .devices--img {
-    display: inline-block;
+  .devices--container {
     position: relative;
+    display: inline-block;
     float: left;
     margin: 20px 0; }
+  .devices--img {
+    max-width: 100%;
+    height: auto; }
   .devices--img-free {
     position: absolute;
     top: -40px;
@@ -171,5 +256,3 @@ footer {
     content: "";
     background: url(/images/logo.png) no-repeat 0 0;
     background-size: 100%; }
-
-/*# sourceMappingURL=style.css.map */
