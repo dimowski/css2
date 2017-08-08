@@ -5,15 +5,24 @@ $primary-color: #f5c506;
 BREAKPOINTS
 *********************/
 
- @mixin breakpoint($point) {
-   @if $point == large {
-     @media only screen and (max-width: 1024px) { @content ; }
+@mixin breakpoint($point) {
+  @if $point == xlarge {
+    @media only screen and (max-width: 1080px) {
+      @content;
+    }
   }
-   @else if $point == medium {
-     @media only screen and (max-width: 640px) { @content ; }
-  }
-    @else if $point == small {
-     @media only screen and (max-width: 480px) { @content ; }
+  @if $point == large {
+    @media only screen and (max-width: 1024px) {
+      @content;
+    }
+  } @else if $point == medium {
+    @media only screen and (max-width: 860px) {
+      @content;
+    }
+  } @else if $point == small {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
   }
 }
 
@@ -34,6 +43,9 @@ body {
   max-width: 1080px;
   margin: 0 auto;
   padding: 0 30px;
+  @include breakpoint(medium) {
+    padding: 0;
+  }
 }
 
 .clearfix {
@@ -45,33 +57,41 @@ body {
 }
 
 .header--background {
-  //background-color: #464646;
-  //background-image: linear-gradient( to top, #464646, #636363);
-  //@include breakpoint(medium) {
-    background: url('../../images/bg-img.jpg') no-repeat;
-    height: 565px;
-    background-size: cover;
-    &:after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-  //}
+  @include breakpoint(medium) {
+    background: none;
+    padding-bottom: 0;
+  }
+  background: url('../../images/bg-img.jpg') no-repeat;
+  background-size: cover;
+  padding-bottom: 100px;
 }
 
 .logo {
-  display: inline-block;
-  @include breakpoint(large) {
-    max-width: 40%;
+  @include breakpoint(medium) {
+    background-color: #464646;
+    background-image: linear-gradient(to top, #464646, #636363);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
   }
+  display: inline-block;
   &--text-big {
-    word-wrap:break-word;
+    @include breakpoint(medium) {
+      font-size: 25px;
+    }
+    word-wrap: break-word;
     display: block;
     vertical-align: middle;
     color: white;
     font-size: 40px;
     text-transform: uppercase;
     &::before {
+      @include breakpoint(medium) {
+        width: 25px;
+        height: 25px;
+      }
       display: inline-block;
       vertical-align: middle;
       width: 70px;
@@ -84,14 +104,13 @@ body {
     }
   }
   &--text-small {
-    //display: none;
-    //@include breakpoint(medium) {
-      color: $cred-color;
-      font-size: 12px;
-      display: inline;
-    //}
+    @include breakpoint(large) {
+      display: none;
+    }
+    color: $cred-color;
+    font-size: 12px;
+    display: inline;
   }
-  @extend .clearfix;
 }
 
 .menu-navbar {
@@ -100,31 +119,31 @@ body {
 }
 
 .navbar {
+  @include breakpoint(medium) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 60px;
+    box-shadow: 0 0 0;
+  }
   list-style: none;
   background: #f5c506;
   display: flex;
-
-  
-  /*
-  
-  
-    position: fixed;
-  top: 0;
-  right: 0;
-  width:100%;
-  height:50px;
-  
-  */
-
-  //@include breakpoint(medium) {
-    box-shadow: -5px -5px 0 rgba(245, 197, 6, 0.5),
-      -10px -10px 0 rgba(245, 197, 6, 0.5);
-  //}
+  box-shadow: -5px -5px 0 rgba(245, 197, 6, 0.5),
+  -10px -10px 0 rgba(245, 197, 6, 0.5);
   li:nth-child(2) {
-   border-left: 1px solid #b99403;
-   border-right:  1px solid #b99403;
+    border-left: 1px solid #b99403;
+    border-right: 1px solid #b99403;
+  }
+  &--item {
+    @include breakpoint(medium) {
+      width: 30%;
+    }
   }
   &--item-link {
+    @include breakpoint(medium) {
+      padding: 1em;
+    }
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
@@ -139,37 +158,52 @@ body {
   }
 }
 
-
 .banner {
   margin-top: 50px;
-  @extend .clearfix;
   &--video {
+    @include breakpoint(large) {
+      width: 45%;
+    }
+    @include breakpoint(medium) {
+      margin: 10px 0 0 0;
+      width: 100%;
+    }
     float: left;
     margin-right: 30px;
+    width: 55%;
+    max-height: 100%;
   }
   &--title {
-    //display: none;
-    //@include breakpoint(medium) {
-      display: inline-block;
-      margin: 100px 0;
-      font-size: 55px;
-      text-transform: uppercase;
-      text-align: center;
-      line-height: 110%;
-      h3:nth-child(1) {
-        color: #f5c506;
-      }
-      h3:nth-child(2) {
-        color: #fff;
-      }
+    @include breakpoint(large) {
+      margin: 50px 0;
     }
-  //}
+    @include breakpoint(medium) {
+      display: none;
+    }
+    display: inline-block;
+    margin: 100px 0;
+    font-size: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 110%;
+    h3:nth-child(1) {
+      color: #f5c506;
+    }
+    h3:nth-child(2) {
+      color: #fff;
+    }
+  }
+  @extend .clearfix;
 }
 
 .features {
+  @include breakpoint(medium) {
+    margin-top: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
   &--container {
     background-color: #f2f2f2;
-    background-image: linear-gradient(45deg, transparent,transparent 48%, rgba(#e3e3e3,.3) 48%, rgba(#e3e3e3,.3) 52%, transparent 52%);
+    background-image: linear-gradient(45deg, transparent, transparent 48%, rgba(#e3e3e3, .3) 48%, rgba(#e3e3e3, .3) 52%, transparent 52%);
     background-size: 6px 6px;
   }
   &--list {
@@ -177,15 +211,21 @@ body {
     li:nth-child(1) {
       border-left: 1px solid #d1d1d1;
       border-right: 1px solid #d1d1d1;
+      @include breakpoint(medium) {
+        border: none;
+      }
     }
     li:nth-child(3) {
       border-left: 1px solid #d1d1d1;
       border-right: 1px solid #d1d1d1;
+      @include breakpoint(medium) {
+        border: none;
+      }
     }
   }
   &--list-item {
     padding: 30px;
-    font-size: 30px;
+    font-size: 25px;
     text-align: center;
     width: 33%;
     margin: 0 auto;
@@ -197,34 +237,48 @@ body {
     line-height: 140%;
     color: black;
     display: block;
+    white-space: nowrap;
   }
   @extend .clearfix;
 }
-
-
 
 /* ================================================ */
 
 .presentation {
   background: url(/images/bg-img-fragment.jpg);
   padding-bottom: 120px;
+  @include breakpoint(medium) {
+    background: none;
+    padding: 0;
+  }
   &--title {
+    @include breakpoint(medium) {
+      display: none;
+    }
     color: #fff;
     text-transform: uppercase;
     font-size: 35px;
     padding: 30px 0;
   }
   &--text {
+    @include breakpoint(medium) {
+      margin: 5px;
+    }
+    position: relative;
     background: #ec9e03;
     height: 230px;
     padding: 20px 30px;
-    width: 320px;
+    max-width: 320px;
     float: left;
     color: #fff;
     font-size: 30px;
     line-height: 130%;
+    display: inline-block;
   }
   &--add {
+    @include breakpoint(xlarge) {
+      left: 300px;
+    }
     position: absolute;
     bottom: 20px;
     right: 340px;
@@ -232,33 +286,68 @@ body {
     color: #f9e2b4;
   }
   &--content {
+    @include breakpoint(xlarge) {
+      width: 700px;
+      margin: 0 auto;
+      float: none;
+    }
+    @include breakpoint(medium) {
+      width: 98%;
+      margin: 1%;
+    }
     position: relative;
     float: left;
-    display: inline-block;
+  }
+  &--video {
+    @include breakpoint(medium) {
+      margin: 5px;
+    }
+    height: 230px;
   }
 }
 
 .tweet {
+  @include breakpoint(xlarge) {
+    display: block;
+    width: 400px;
+    margin: 30px auto 0;
+  }
+  @include breakpoint(medium) {
+    margin: 0;
+    width: 100%;
+  }
   display: inline-block;
   position: relative;
   &--logo {
+    @include breakpoint(medium) {
+      background: $primary-color;
+      text-align: center;
+      margin: 0;
+    }
     margin-left: 30px;
     background: #ec9e03;
     padding: 20px 80px;
+    width: 100%;
     color: #c18000;
     font-size: 12em;
   }
   &--count {
+    @include breakpoint(medium) {
+      display: none;
+    }
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 10px;
     font-size: 25px;
     color: #f9e2b4;
   }
   &--add {
+    @include breakpoint(medium) {
+      display: none;
+    }
     position: absolute;
     bottom: 20px;
-    right: 20px;
+    right: 10px;
     font-size: 25px;
     color: #f9e2b4;
   }
@@ -267,7 +356,16 @@ body {
 .devices {
   background: url(/images/bg-img-fragment2.png);
   background-color: #4c4c4c;
-  padding: 0 20px 20px 120px;
+  padding: 0 20px;
+  @include breakpoint(medium) {
+    background-image: none;
+  }
+  &--container {
+    @include breakpoint(xlarge) {
+      width: 60%;
+      margin: 0 auto;
+    }
+  }
   &--title {
     color: #f5c506;
     text-transform: uppercase;
@@ -275,17 +373,23 @@ body {
     font-size: 30px;
     padding: 30px 0;
   }
-  &--container {
+  &--label {
+    margin: 20px auto;
     position: relative;
     display: inline-block;
     float: left;
-    margin: 20px 0;
   }
   &--img {
     max-width: 100%;
     height: auto;
   }
   &--img-free {
+    @include breakpoint(medium) {
+      height: 80px;
+      width: 80px;
+      font-size: 10px;
+      line-height: 80px;
+    }
     position: absolute;
     top: -40px;
     left: -20px;
@@ -300,6 +404,10 @@ body {
     text-transform: uppercase;
   }
   &--list {
+    @include breakpoint(medium) {
+      display: none;
+    }
+    min-width: 400px;
     padding: 50px 60px;
     display: table-cell;
     font-size: 25px;
@@ -310,7 +418,7 @@ body {
       padding-left: 30px;
     }
     li::before {
-      content:"·";
+      content: "·";
       color: #f5c506;
       font-size: 130px;
       vertical-align: middle;
@@ -322,7 +430,6 @@ body {
   }
   @extend .clearfix;
 }
-
 
 footer {
   background-color: #4c4c4c;

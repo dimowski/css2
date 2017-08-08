@@ -23,12 +23,12 @@
               <i class="fa fa-user fa-lg" aria-hidden="true"></i>&nbsp;About us
             </a>
           </li>
-          <li class="nav-item">
+          <li class="navbar--item">
             <a class="navbar--item-link" href="#">
               <i class="fa fa-wrench fa-lg" aria-hidden="true"></i>&nbsp;Services
             </a>
           </li>
-          <li class="nav-item">
+          <li class="navbar--item">
             <a class="navbar--item-link" href="#">
               <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>&nbsp;Contact
             </a>
@@ -39,10 +39,12 @@
   </header>
 
   <div class="wrapper banner">
-    <div class="banner--video">
-      <iframe width="550" height="330"
-              src="https://youtube.com/embed/rK2584Xb_9Q">
-      </iframe>
+    <div>
+      <video class="banner--video" controls>
+        <source src="/videos/mov_bbb.mp4" type="video/mp4">
+        <source src="/videos/mov_bbb.ogg" type="video/ogg">
+        Your browser does not support HTML5 video.
+      </video>
     </div>
     <div class="banner--title">
       <h3>The cool</h3>
@@ -81,12 +83,14 @@
         <p class="presentation--text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut</p>
         <div class="presentation--add">+</div>
-        <iframe width="310" height="230" src="https://www.youtube.com/embed/lK13SW0QW04"></iframe>
+        <img class="presentation--video" src="videos/video2.png">
       </div>
       <div class="tweet">
-        <a href="#">
-          <i class="fa fa-twitter tweet--logo" aria-hidden="true"></i>
-        </a>
+        <div class="tweet--link">
+          <a href="#">
+            <i class="fa fa-twitter tweet--logo" aria-hidden="true"></i>
+          </a>
+        </div>
         <div class="tweet--count">22</div>
         <div class="tweet--add">+</div>
       </div>
@@ -99,8 +103,8 @@
     <div class="devices--title">
       <h3>Lorem ipsum dolor sit amet</h3>
     </div>
-    <div>
-      <div class="devices--container">
+    <div class="devices--container">
+      <div class="devices--label">
         <img class="devices--img" src="images/devices.png">
         <div class="devices--img-free">its 100% free</div>
       </div>
