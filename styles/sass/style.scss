@@ -20,7 +20,7 @@ BREAKPOINTS
       @content;
     }
   } @else if $point == small {
-    @media only screen and (max-width: 480px) {
+    @media only screen and (max-width: 650px) {
       @content;
     }
   }
@@ -32,6 +32,7 @@ body {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
+  box-sizing: border-box;
 }
 
 * {
@@ -72,25 +73,38 @@ body {
     background-image: linear-gradient(to top, #464646, #636363);
     position: fixed;
     top: 0;
-    right: 0;
-    width: 100%;
+    left: 0;
+    width: 25%;
     height: 60px;
+    z-index: 10;
   }
   display: inline-block;
   &--text-big {
-    @include breakpoint(medium) {
-      font-size: 25px;
-    }
+    font-style: italic;
     word-wrap: break-word;
-    display: block;
-    vertical-align: middle;
     color: white;
     font-size: 40px;
     text-transform: uppercase;
+    display: block;
+    
+    @include breakpoint(medium) {
+      margin-top: 4px;
+      font-size: 22px;
+    }
+    
+    @include breakpoint(small) {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+  
     &::before {
       @include breakpoint(medium) {
-        width: 25px;
-        height: 25px;
+        width: 22px;
+        height: 22px;
+      }
+      @include breakpoint(small) {
+        width: 15px;
+        height: 15px;
       }
       display: inline-block;
       vertical-align: middle;
@@ -123,9 +137,11 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    height: 60px;
     box-shadow: 0 0 0;
+    z-index: 10;
+    width: 75%;
   }
+  
   list-style: none;
   background: #f5c506;
   display: flex;
@@ -137,13 +153,19 @@ body {
   }
   &--item {
     @include breakpoint(medium) {
-      width: 30%;
+      width: 33%;
     }
   }
   &--item-link {
     @include breakpoint(medium) {
-      padding: 1em;
+      padding: 21px 10px;
+      width: 100%;
     }
+    @include breakpoint(small) {
+      font-size: 15px;
+      padding: 23px 0;
+    }
+    
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
@@ -233,11 +255,18 @@ body {
     color: $primary-color;
   }
   &--title {
+    @include breakpoint(medium) {
+      font-size: 20px;
+    }
+    
+    @include breakpoint(small) {
+      font-size: 15px;
+    }
+    
     text-decoration: none;
     line-height: 140%;
     color: black;
     display: block;
-    white-space: nowrap;
   }
   @extend .clearfix;
 }
@@ -262,8 +291,15 @@ body {
   }
   &--text {
     @include breakpoint(medium) {
-      margin: 5px;
+      margin-right: 1%;
+      max-width: 49%;
+      font-size: 28px;
     }
+    
+    @include breakpoint(small) {
+      font-size: 20px;
+    }
+    
     position: relative;
     background: #ec9e03;
     height: 230px;
@@ -279,6 +315,11 @@ body {
     @include breakpoint(xlarge) {
       left: 300px;
     }
+    
+    @include breakpoint(small) {
+      left: 150px;
+    }
+    
     position: absolute;
     bottom: 20px;
     right: 340px;
@@ -292,15 +333,16 @@ body {
       float: none;
     }
     @include breakpoint(medium) {
-      width: 98%;
-      margin: 1%;
+      width: 96%;
+      margin: 2%;
     }
     position: relative;
     float: left;
   }
   &--video {
     @include breakpoint(medium) {
-      margin: 5px;
+      margin-left: 1%;
+      width: 49%;
     }
     height: 230px;
   }
@@ -313,6 +355,7 @@ body {
     margin: 30px auto 0;
   }
   @include breakpoint(medium) {
+    font-size: 12px;
     margin: 0;
     width: 100%;
   }
@@ -437,6 +480,10 @@ footer {
 
 .footer {
   &--logo {
+    @include breakpoint(medium) {
+      font-size: 20px;
+    }
+    font-style: italic;
     text-align: center;
     color: #fff;
     text-transform: uppercase;
@@ -444,6 +491,10 @@ footer {
     border-top: 1px solid black;
     box-shadow: 0px -4px 3px rgba(50, 50, 50, 1);
     &::before {
+      @include breakpoint(medium) {
+        width: 35px;
+        height: 35px;
+      }
       display: inline-block;
       vertical-align: middle;
       width: 45px;
