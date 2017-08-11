@@ -1,5 +1,8 @@
 @charset "UTF-8";
 /*********************
+COLORS
+*********************/
+/*********************
 BREAKPOINTS
 *********************/
 /****************************************/
@@ -26,6 +29,9 @@ body {
   display: table;
   clear: both; }
 
+/*********************
+HEADER
+*********************/
 .header--background {
   background: url("../../images/bg-img.jpg") no-repeat;
   background-size: cover;
@@ -47,6 +53,9 @@ body {
       width: 25%;
       height: 60px;
       z-index: 10; } }
+  @media only screen and (max-width: 460px) {
+    .logo {
+      height: 49px; } }
   .logo--text-big {
     font-style: italic;
     word-wrap: break-word;
@@ -62,6 +71,11 @@ body {
       .logo--text-big {
         margin-top: 6px;
         font-size: 15px; } }
+    @media only screen and (max-width: 460px) {
+      .logo--text-big {
+        margin-top: 4px;
+        font-size: 13px;
+        white-space: nowrap; } }
     .logo--text-big::before {
       display: inline-block;
       vertical-align: middle;
@@ -70,7 +84,7 @@ body {
       margin: 10px 5px;
       padding: 6px;
       content: "";
-      background: url(/images/logo.png) no-repeat 0 0;
+      background: url(../../images/logo.png) no-repeat 0 0;
       background-size: 100%; }
       @media only screen and (max-width: 860px) {
         .logo--text-big::before {
@@ -80,6 +94,10 @@ body {
         .logo--text-big::before {
           width: 15px;
           height: 15px; } }
+      @media only screen and (max-width: 460px) {
+        .logo--text-big::before {
+          width: 13px;
+          height: 13px; } }
   .logo--text-small {
     color: #8c837c;
     font-size: 12px;
@@ -97,6 +115,9 @@ body {
   background: #f5c506;
   display: flex;
   box-shadow: -5px -5px 0 rgba(245, 197, 6, 0.5), -10px -10px 0 rgba(245, 197, 6, 0.5); }
+  .navbar li:nth-child(2) {
+    border-left: 1px solid #b99403;
+    border-right: 1px solid #b99403; }
   @media only screen and (max-width: 860px) {
     .navbar {
       position: fixed;
@@ -105,12 +126,10 @@ body {
       box-shadow: 0 0 0;
       z-index: 10;
       width: 75%; } }
-  .navbar li:nth-child(2) {
-    border-left: 1px solid #b99403;
-    border-right: 1px solid #b99403; }
   @media only screen and (max-width: 860px) {
     .navbar--item {
-      width: 33%; } }
+      width: 33%;
+      white-space: nowrap; } }
   .navbar--item-link {
     text-transform: uppercase;
     text-decoration: none;
@@ -126,13 +145,17 @@ body {
         width: 100%; } }
     @media only screen and (max-width: 650px) {
       .navbar--item-link {
-        font-size: 15px;
+        font-size: 14px;
         padding: 23px 0; } }
+    @media only screen and (max-width: 460px) {
+      .navbar--item-link {
+        font-size: 13px;
+        padding: 18px 0; } }
     .navbar--item-link:hover {
       background: #dcb105; }
 
 .banner {
-  margin-top: 50px; }
+  margin-top: 49px; }
   .banner--video {
     float: left;
     margin-right: 30px;
@@ -143,7 +166,6 @@ body {
         width: 45%; } }
     @media only screen and (max-width: 860px) {
       .banner--video {
-        margin: 10px 0 0 0;
         width: 100%; } }
   .banner--title {
     display: inline-block;
@@ -152,17 +174,20 @@ body {
     text-transform: uppercase;
     text-align: center;
     line-height: 110%; }
+    .banner--title h3:nth-child(1) {
+      color: #f5c506; }
+    .banner--title h3:nth-child(2) {
+      color: #fff; }
     @media only screen and (max-width: 1024px) {
       .banner--title {
         margin: 50px 0; } }
     @media only screen and (max-width: 860px) {
       .banner--title {
         display: none; } }
-    .banner--title h3:nth-child(1) {
-      color: #f5c506; }
-    .banner--title h3:nth-child(2) {
-      color: #fff; }
 
+/*********************
+FEATURES
+*********************/
 @media only screen and (max-width: 860px) {
   .features {
     margin-top: 8px;
@@ -205,9 +230,11 @@ body {
     .features--title {
       font-size: 15px; } }
 
-/* ================================================ */
+/*********************
+PRESENTATION
+*********************/
 .presentation {
-  background: url(/images/bg-img-fragment.jpg);
+  background: url(../../images/bg-img-fragment.jpg);
   padding-bottom: 120px; }
   @media only screen and (max-width: 860px) {
     .presentation {
@@ -315,8 +342,11 @@ body {
       .tweet--add {
         display: none; } }
 
+/*********************
+DEVICES
+*********************/
 .devices {
-  background: url(/images/bg-img-fragment2.png);
+  background: url(../../images/bg-img-fragment2.png);
   background-color: #4c4c4c;
   padding: 0 20px; }
   @media only screen and (max-width: 860px) {
@@ -382,6 +412,9 @@ body {
       left: -10px;
       top: 13px; }
 
+/*********************
+FOOTER
+*********************/
 footer {
   background-color: #4c4c4c; }
 
@@ -404,7 +437,7 @@ footer {
     margin: 10px 5px;
     padding: 6px;
     content: "";
-    background: url(/images/logo.png) no-repeat 0 0;
+    background: url(../../images/logo.png) no-repeat 0 0;
     background-size: 100%; }
     @media only screen and (max-width: 860px) {
       .footer--logo::before {

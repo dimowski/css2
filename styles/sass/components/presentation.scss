@@ -1,0 +1,129 @@
+/*********************
+PRESENTATION
+*********************/
+.presentation {
+  background: url(../../images/bg-img-fragment.jpg);
+  padding-bottom: 120px;
+  @include breakpoint(medium) {
+    background: none;
+    padding: 0;
+  }
+
+  &--title {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 35px;
+    padding: 30px 0;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  &--text {
+    position: relative;
+    background: $presentation-bckg;
+    height: 230px;
+    padding: 20px 30px;
+    max-width: 320px;
+    float: left;
+    color: #fff;
+    font-size: 30px;
+    line-height: 130%;
+    display: inline-block;
+    @include breakpoint(medium) {
+      margin-right: 1%;
+      max-width: 49%;
+      font-size: 28px;
+    }
+    @include breakpoint(small) {
+      font-size: 20px;
+    }
+  }
+
+  &--add {
+    position: absolute;
+    bottom: 20px;
+    right: 340px;
+    font-size: 25px;
+    color: $presentation-symb;
+    @include breakpoint(xlarge) {
+      left: 300px;
+    }
+    @include breakpoint(small) {
+      left: 150px;
+    }
+  }
+
+  &--content {
+    position: relative;
+    float: left;
+    @include breakpoint(xlarge) {
+      width: 700px;
+      margin: 0 auto;
+      float: none;
+    }
+    @include breakpoint(medium) {
+      width: 96%;
+      margin: 2%;
+    }
+  }
+
+  &--video {
+    height: 230px;
+    @include breakpoint(medium) {
+      margin-left: 1%;
+      width: 49%;
+    }
+  }
+}
+
+.tweet {
+  display: inline-block;
+  position: relative;
+  @include breakpoint(xlarge) {
+    display: block;
+    width: 400px;
+    margin: 30px auto 0;
+  }
+  @include breakpoint(medium) {
+    font-size: 12px;
+    margin: 0;
+    width: 100%;
+  }
+
+  &--logo {
+    margin-left: 30px;
+    background: $presentation-bckg;
+    padding: 20px 80px;
+    width: 100%;
+    color: #c18000;
+    font-size: 12em;
+    @include breakpoint(medium) {
+      background: $primary-color;
+      text-align: center;
+      margin: 0;
+    }
+  }
+
+  &--count {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 25px;
+    color: $presentation-symb;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+
+  &--add {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    font-size: 25px;
+    color: $presentation-symb;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+}

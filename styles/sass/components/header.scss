@@ -1,0 +1,181 @@
+/*********************
+HEADER
+*********************/
+.header--background {
+  background: url('../../images/bg-img.jpg') no-repeat;
+  background-size: cover;
+  padding-bottom: 100px;
+  @include breakpoint(medium) {
+    background: none;
+    padding-bottom: 0;
+  }
+}
+
+.logo {
+  display: inline-block;
+  @include breakpoint(medium) {
+    background-color: $logo-bckg;
+    background-image: linear-gradient(to top, #464646, #636363);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 60px;
+    z-index: 10;
+  }
+  @include breakpoint(xsmall) {
+    height: 49px;
+  }
+
+  &--text-big {
+    font-style: italic;
+    word-wrap: break-word;
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+    display: block;
+    @include breakpoint(medium) {
+      margin-top: 4px;
+      font-size: 22px;
+    }
+    @include breakpoint(small) {
+      margin-top: 6px;
+      font-size: 15px;
+    }
+    @include breakpoint(xsmall) {
+      margin-top: 4px;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    &::before {
+      display: inline-block;
+      vertical-align: middle;
+      width: 70px;
+      height: 70px;
+      margin: 10px 5px;
+      padding: 6px;
+      content: "";
+      background: url(../../images/logo.png) no-repeat 0 0;
+      background-size: 100%;
+      @include breakpoint(medium) {
+        width: 22px;
+        height: 22px;
+      }
+      @include breakpoint(small) {
+        width: 15px;
+        height: 15px;
+      }
+      @include breakpoint(xsmall) {
+        width: 13px;
+        height: 13px;
+      }
+    }
+  }
+  &--text-small {
+    color: #8c837c;
+    font-size: 12px;
+    display: inline;
+    @include breakpoint(large) {
+      display: none;
+    }
+  }
+}
+
+.menu-navbar {
+  margin-top: 40px;
+  float: right;
+}
+
+.navbar {
+  list-style: none;
+  background: $navbar-bckg;
+  display: flex;
+  box-shadow: -5px -5px 0 rgba(245, 197, 6, 0.5),
+  -10px -10px 0 rgba(245, 197, 6, 0.5);
+  li:nth-child(2) {
+    border-left: 1px solid $navbar-border;
+    border-right: 1px solid $navbar-border;
+  }
+  @include breakpoint(medium) {
+    position: fixed;
+    top: 0;
+    right: 0;
+    box-shadow: 0 0 0;
+    z-index: 10;
+    width: 75%;
+  }
+
+  &--item {
+    @include breakpoint(medium) {
+      width: 33%;
+      white-space: nowrap;
+    }
+  }
+
+  &--item-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    font-size: 17px;
+    color: #b99403;
+    display: block;
+    padding: 0.5em;
+    width: 140px;
+    @include breakpoint(medium) {
+      padding: 21px 10px;
+      width: 100%;
+    }
+    @include breakpoint(small) {
+      font-size: 14px;
+      padding: 23px 0;
+    }
+    @include breakpoint(xsmall) {
+      font-size: 13px;
+      padding: 18px 0;
+    }
+    &:hover {
+      background: darken(#f5c506, 5%);
+    }
+  }
+}
+
+.banner {
+  margin-top: 49px;
+
+  &--video {
+    float: left;
+    margin-right: 30px;
+    width: 55%;
+    max-height: 100%;
+    @include breakpoint(large) {
+      width: 45%;
+    }
+    @include breakpoint(medium) {
+      //margin: 10px 0 0 0;
+      width: 100%;
+    }
+  }
+
+  &--title {
+    display: inline-block;
+    margin: 100px 0;
+    font-size: 55px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 110%;
+    h3:nth-child(1) {
+      color: #f5c506;
+    }
+    h3:nth-child(2) {
+      color: #fff;
+    }
+    @include breakpoint(large) {
+      margin: 50px 0;
+    }
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  @extend .clearfix;
+}

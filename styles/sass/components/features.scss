@@ -1,0 +1,57 @@
+/*********************
+FEATURES
+*********************/
+.features {
+  @include breakpoint(medium) {
+    margin-top: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+
+  &--container {
+    background-color: $features-bckg;
+    background-image: linear-gradient(45deg, transparent, transparent 48%, rgba(#e3e3e3, .3) 48%, rgba(#e3e3e3, .3) 52%, transparent 52%);
+    background-size: 6px 6px;
+  }
+
+  &--list {
+    text-transform: uppercase;
+    li:nth-child(1) {
+      border-left: 1px solid $features-border;
+      border-right: 1px solid $features-border;
+      @include breakpoint(medium) {
+        border: none;
+      }
+    }
+    li:nth-child(3) {
+      border-left: 1px solid $features-border;
+      border-right: 1px solid $features-border;
+      @include breakpoint(medium) {
+        border: none;
+      }
+    }
+  }
+
+  &--list-item {
+    padding: 30px;
+    font-size: 25px;
+    text-align: center;
+    width: 33%;
+    margin: 0 auto;
+    float: left;
+    color: $primary-color;
+  }
+
+  &--title {
+    text-decoration: none;
+    line-height: 140%;
+    color: black;
+    display: block;
+    @include breakpoint(medium) {
+      font-size: 20px;
+    }
+    @include breakpoint(small) {
+      font-size: 15px;
+    }
+  }
+  @extend .clearfix;
+}
